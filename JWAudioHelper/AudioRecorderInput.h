@@ -16,16 +16,6 @@ namespace JWAudioToolkit
 {
 
 typedef void (*AudioRecorderAnalysisCallbackFunc)(void*, float, float);
-typedef struct AudioMeterTable {
-        float	mMinDecibels;
-        float	mDecibelResolution;
-        float	mScaleFactor;
-        float	*mTable;
-} AudioMeterTable;
-    
-inline double DbToAmp(double inDb) {
-    return pow(10.0, 0.05 * inDb);
-}
     
 class AudioRecorderInput:public AudioInput{
     
@@ -38,16 +28,12 @@ public:
     
 private:
     AudioQueueBufferRef	mBuffers[kNumberRecordBuffers];
-    UInt64 mRecordPacket;
     AudioQueueRef mQueue;
     
     AudioRecorderAnalysisCallbackFunc mCallBackFunc = NULL;
     AudioQueueLevelMeterState *mChanelLevels = NULL;
-    AudioMeterTable *mMeterData = NULL;
     itimerval *mTick = NULL;
     void * mUserData = NULL;
-    
-    float parseDBValue(float inDecibels);
     
     static void MyInputBufferHandler(	void *								inUserData,
                                      AudioQueueRef						inAQ,

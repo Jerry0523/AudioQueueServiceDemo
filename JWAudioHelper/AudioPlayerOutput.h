@@ -17,10 +17,13 @@ namespace JWAudioToolkit
 class AudioPlayerOutput:public AudioProcessorPipe
 {
 public:
+    AudioPlayerOutput();
+    AudioPlayerOutput(long pitch);
     void putSamples(SInt16 *samples, UInt32 size);
     void clear();
     
 private:
+    long mPitch = 0;
     bool hasSetUp;
     AudioQueueRef mQueue;
     AudioQueueBufferRef	mBuffers[kNumberRecordBuffers];

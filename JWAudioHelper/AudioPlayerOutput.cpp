@@ -10,6 +10,14 @@
 
 using namespace JWAudioToolkit;
 
+AudioPlayerOutput::AudioPlayerOutput():AudioProcessorPipe() {
+    
+}
+
+AudioPlayerOutput::AudioPlayerOutput(long pitch):AudioPlayerOutput(){
+    mPitch = pitch;
+}
+
 void AudioPlayerOutput::putSamples(SInt16 *samples, UInt32 size) {
     mSamples = samples;
     mSamplesSize = size;
@@ -22,7 +30,6 @@ void AudioPlayerOutput::clear(){
     AudioProcessorPipe::clear();
     hasSetUp = false;
     if (mSamples) {
-        delete [] mSamples;
         mSamples = NULL;
     }
     if (mQueue) {
@@ -48,11 +55,22 @@ void AudioPlayerOutput::setup(){
                                    kAudioQueueProperty_StreamDescription,
                                    &format,
                                    &size) == noErr);
+    
     int bufferByteSize = ComputeRecordBufferSize(&format, mQueue,kBufferDurationSeconds);
     for (int i = 0; i < kNumberRecordBuffers; ++i) {
         assert(AudioQueueAllocateBuffer(mQueue, bufferByteSize, &mBuffers[i]) == noErr);
         fillSamplesInBuffer(mBuffers[i]);
     }
+    
+    if (mPitch != 0) {
+        UInt32 trueValue = 1;
+        AudioQueueSetProperty(mQueue, kAudioQueueProperty_EnableTimePitch, &trueValue, sizeof(trueValue));
+        UInt32 timePitchAlgorithm = kAudioQueueTimePitchAlgorithm_Spectral; // supports rate and pitch
+        AudioQueueSetProperty(mQueue, kAudioQueueProperty_TimePitchAlgorithm, &timePitchAlgorithm, sizeof(timePitchAlgorithm));
+        
+        AudioQueueSetParameter(mQueue, kAudioQueueParam_Pitch, mPitch);
+    }
+    
     AudioQueueStart(mQueue, NULL);
 }
 
@@ -60,7 +78,6 @@ void AudioPlayerOutput::fillSamplesInBuffer(AudioQueueBufferRef buffer) {
     if(mSamples){
         buffer->mAudioDataByteSize = mSamplesSize;
         memcpy(buffer->mAudioData, mSamples, mSamplesSize);
-        delete [] mSamples;
         mSamples = NULL;
     }
     AudioQueueEnqueueBuffer(mQueue, buffer, 0, NULL);

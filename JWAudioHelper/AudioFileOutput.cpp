@@ -40,8 +40,6 @@ void AudioFileOutput::putSamples(SInt16 *samples, UInt32 size) {
                                  samples) == noErr);
 
     packetIndex += ioNumPackets;
-    delete [] samples;
-
 }
 
 void AudioFileOutput::clear(){

@@ -37,35 +37,10 @@ AudioRecorderInput::AudioRecorderInput(AudioProcessorPipe *output, AudioRecorder
         mCallBackFunc = callBackFunc;
         
         mChanelLevels = (AudioQueueLevelMeterState*)malloc(sizeof(AudioQueueLevelMeterState) * kRecordChannels);
-        mMeterData = new AudioMeterTable;
+
         mTick = new itimerval;
-        
-        mMeterData->mMinDecibels = -80.0;
-        mMeterData->mDecibelResolution = mMeterData->mMinDecibels / (400 - 1);
-        mMeterData->mScaleFactor = 1 / mMeterData->mDecibelResolution;
-        
-        mMeterData->mTable = (float*)malloc(400*sizeof(float));
-        
-        double minAmp = DbToAmp(mMeterData->mMinDecibels);
-        double ampRange = 1. - minAmp;
-        double invAmpRange = 1. / ampRange;
-        
-        double rroot = 1. / 2.0;
-        for (size_t i = 0; i < 400; ++i) {
-            double decibels = i * mMeterData->mDecibelResolution;
-            double amp = DbToAmp(decibels);
-            double adjAmp = (amp - minAmp) * invAmpRange;
-            mMeterData->mTable[i] = pow(adjAmp, rroot);
-        }
         mUserData = userData;
     }
-}
-
-float AudioRecorderInput::parseDBValue(float inDecibels){
-    if (inDecibels < mMeterData->mMinDecibels) return  0.;
-    if (inDecibels >= 0.) return 1.;
-    int index = (int)(inDecibels * mMeterData->mScaleFactor);
-    return mMeterData->mTable[index];
 }
 
 AudioRecorderInput::~AudioRecorderInput(){
@@ -74,9 +49,7 @@ AudioRecorderInput::~AudioRecorderInput(){
     if (mChanelLevels) {
          free(mChanelLevels);
     }
-    if (mMeterData) {
-        delete mMeterData;
-    }
+
     if (mTick) {
         delete mTick;
     }
@@ -86,10 +59,13 @@ AudioRecorderInput::~AudioRecorderInput(){
 void AudioRecorderInput::MyTickHander(int signal) {
     if(signal == SIGALRM && INSTANCE) {
         UInt32 data_sz = sizeof(AudioQueueLevelMeterState) * kRecordChannels;
-        OSStatus status = AudioQueueGetProperty(INSTANCE->mQueue, kAudioQueueProperty_CurrentLevelMeterDB, INSTANCE->mChanelLevels, &data_sz);
+        OSStatus status = AudioQueueGetProperty(INSTANCE->mQueue, kAudioQueueProperty_CurrentLevelMeter, INSTANCE->mChanelLevels, &data_sz);
+        
         if (status == noErr) {
-            float peakValue = INSTANCE->parseDBValue(INSTANCE->mChanelLevels[0].mPeakPower);
-            float averageValue = INSTANCE->parseDBValue(INSTANCE->mChanelLevels[0].mAveragePower);
+            
+            float peakValue = INSTANCE->mChanelLevels[0].mPeakPower;
+            float averageValue = INSTANCE->mChanelLevels[0].mAveragePower;
+            
             if (INSTANCE->mCallBackFunc) {
                 INSTANCE->mCallBackFunc(INSTANCE->mUserData, peakValue, averageValue);
             }
@@ -112,6 +88,7 @@ void AudioRecorderInput::start(){
                                    kAudioQueueProperty_StreamDescription,
                                    &format,
                                    &size) == noErr);
+        
     int bufferByteSize = ComputeRecordBufferSize(&format, mQueue,kBufferDurationSeconds);
     for (int i = 0; i < kNumberRecordBuffers; ++i) {
         assert(AudioQueueAllocateBuffer(mQueue, bufferByteSize, &mBuffers[i]) == noErr);
@@ -174,12 +151,8 @@ void AudioRecorderInput::MyInputBufferHandler(void* inUserData,
     if (inNumPackets > 0) {
         AudioProcessorPipe *output = recorder->getOutput();
         if (output) {
-            SInt16 *outBuffer = new SInt16[inBuffer->mAudioDataBytesCapacity];
-            memcpy(outBuffer, inBuffer->mAudioData, inBuffer->mAudioDataBytesCapacity);
-            output->putSamples(outBuffer, inBuffer->mAudioDataBytesCapacity);
+            output->putSamples((SInt16 *)inBuffer->mAudioData, inBuffer->mAudioDataBytesCapacity);
         }
-        
-        recorder->mRecordPacket += inNumPackets;
     }
     if (recorder->running) {
         AudioQueueEnqueueBuffer(inAQ, inBuffer, 0, NULL);

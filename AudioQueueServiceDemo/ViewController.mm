@@ -10,8 +10,6 @@
 #import "ViewController.h"
 #import "AudioRecorderInput.h"
 
-#import "AudioTouchPipe.h"
-
 #import "AudioPlayerOutput.h"
 #import "AudioFileOutput.h"
 
@@ -42,8 +40,7 @@ static void refreshSoundPow(void* userData, float peak, float average) {
 //    JWAudioToolkit::AudioFileOutput *output = new JWAudioToolkit::AudioFileOutput(cFilePath);
     
     JWAudioToolkit::AudioPlayerOutput *output = new JWAudioToolkit::AudioPlayerOutput();
-    JWAudioToolkit::AudioTouchPipe *touch = new JWAudioToolkit::AudioTouchPipe(output, 8.0);
-    JWAudioToolkit::AudioRecorderInput *input = new JWAudioToolkit::AudioRecorderInput(touch, refreshSoundPow, (__bridge void*)self);
+    JWAudioToolkit::AudioRecorderInput *input = new JWAudioToolkit::AudioRecorderInput(output, refreshSoundPow, (__bridge void*)self);
     self.recorder = input;
 }
 

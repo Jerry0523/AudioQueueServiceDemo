@@ -15,20 +15,8 @@
 		845DE7961BF4858500112F9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845DE7941BF4858500112F9A /* LaunchScreen.storyboard */; };
 		845DE7A51BF4A07500112F9A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845DE7A41BF4A07500112F9A /* AVFoundation.framework */; };
 		845DE7A71BF4A07C00112F9A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845DE7A61BF4A07C00112F9A /* AudioToolbox.framework */; };
-		8489DE261BFAFED200248C2D /* AAFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489DE0F1BFAFED200248C2D /* AAFilter.cpp */; };
-		8489DE271BFAFED200248C2D /* BPMDetect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489DE111BFAFED200248C2D /* BPMDetect.cpp */; };
-		8489DE281BFAFED200248C2D /* cpu_detect_x86.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489DE141BFAFED200248C2D /* cpu_detect_x86.cpp */; };
-		8489DE291BFAFED200248C2D /* FIFOSampleBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489DE151BFAFED200248C2D /* FIFOSampleBuffer.cpp */; };
-		8489DE2A1BFAFED200248C2D /* FIRFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489DE181BFAFED200248C2D /* FIRFilter.cpp */; };
-		8489DE2B1BFAFED200248C2D /* mmx_optimized.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489DE1A1BFAFED200248C2D /* mmx_optimized.cpp */; };
-		8489DE2C1BFAFED200248C2D /* PeakFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489DE1B1BFAFED200248C2D /* PeakFinder.cpp */; };
-		8489DE2D1BFAFED200248C2D /* RateTransposer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489DE1D1BFAFED200248C2D /* RateTransposer.cpp */; };
-		8489DE2E1BFAFED200248C2D /* SoundTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489DE1F1BFAFED200248C2D /* SoundTouch.cpp */; };
-		8489DE2F1BFAFED200248C2D /* sse_optimized.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489DE221BFAFED200248C2D /* sse_optimized.cpp */; };
-		8489DE301BFAFED200248C2D /* TDStretch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489DE241BFAFED200248C2D /* TDStretch.cpp */; };
 		84A2F38C1C02E03C0037F1FE /* AudioRecorderInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A2F38A1C02E03C0037F1FE /* AudioRecorderInput.cpp */; };
 		84A2F38F1C02F1E90037F1FE /* AudioPlayerOutput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A2F38D1C02F1E90037F1FE /* AudioPlayerOutput.cpp */; };
-		84A2F3921C030FFA0037F1FE /* AudioTouchPipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A2F3901C030FFA0037F1FE /* AudioTouchPipe.cpp */; };
 		84A2F39E1C04183C0037F1FE /* AudioFileOutput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A2F39C1C04183C0037F1FE /* AudioFileOutput.cpp */; };
 /* End PBXBuildFile section */
 
@@ -45,36 +33,11 @@
 		845DE7971BF4858500112F9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		845DE7A41BF4A07500112F9A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		845DE7A61BF4A07C00112F9A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		8489DE0F1BFAFED200248C2D /* AAFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AAFilter.cpp; sourceTree = "<group>"; };
-		8489DE101BFAFED200248C2D /* AAFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAFilter.h; sourceTree = "<group>"; };
-		8489DE111BFAFED200248C2D /* BPMDetect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BPMDetect.cpp; sourceTree = "<group>"; };
-		8489DE121BFAFED200248C2D /* BPMDetect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMDetect.h; sourceTree = "<group>"; };
-		8489DE131BFAFED200248C2D /* cpu_detect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpu_detect.h; sourceTree = "<group>"; };
-		8489DE141BFAFED200248C2D /* cpu_detect_x86.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cpu_detect_x86.cpp; sourceTree = "<group>"; };
-		8489DE151BFAFED200248C2D /* FIFOSampleBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FIFOSampleBuffer.cpp; sourceTree = "<group>"; };
-		8489DE161BFAFED200248C2D /* FIFOSampleBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFOSampleBuffer.h; sourceTree = "<group>"; };
-		8489DE171BFAFED200248C2D /* FIFOSamplePipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFOSamplePipe.h; sourceTree = "<group>"; };
-		8489DE181BFAFED200248C2D /* FIRFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FIRFilter.cpp; sourceTree = "<group>"; };
-		8489DE191BFAFED200248C2D /* FIRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIRFilter.h; sourceTree = "<group>"; };
-		8489DE1A1BFAFED200248C2D /* mmx_optimized.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mmx_optimized.cpp; sourceTree = "<group>"; };
-		8489DE1B1BFAFED200248C2D /* PeakFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PeakFinder.cpp; sourceTree = "<group>"; };
-		8489DE1C1BFAFED200248C2D /* PeakFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeakFinder.h; sourceTree = "<group>"; };
-		8489DE1D1BFAFED200248C2D /* RateTransposer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RateTransposer.cpp; sourceTree = "<group>"; };
-		8489DE1E1BFAFED200248C2D /* RateTransposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateTransposer.h; sourceTree = "<group>"; };
-		8489DE1F1BFAFED200248C2D /* SoundTouch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundTouch.cpp; sourceTree = "<group>"; };
-		8489DE201BFAFED200248C2D /* SoundTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundTouch.h; sourceTree = "<group>"; };
-		8489DE211BFAFED200248C2D /* soundtouch_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundtouch_config.h; sourceTree = "<group>"; };
-		8489DE221BFAFED200248C2D /* sse_optimized.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sse_optimized.cpp; sourceTree = "<group>"; };
-		8489DE231BFAFED200248C2D /* STTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTypes.h; sourceTree = "<group>"; };
-		8489DE241BFAFED200248C2D /* TDStretch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TDStretch.cpp; sourceTree = "<group>"; };
-		8489DE251BFAFED200248C2D /* TDStretch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDStretch.h; sourceTree = "<group>"; };
 		84A2F3891C02D37F0037F1FE /* AudioToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioToolkit.h; sourceTree = "<group>"; };
 		84A2F38A1C02E03C0037F1FE /* AudioRecorderInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioRecorderInput.cpp; sourceTree = "<group>"; };
 		84A2F38B1C02E03C0037F1FE /* AudioRecorderInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRecorderInput.h; sourceTree = "<group>"; };
 		84A2F38D1C02F1E90037F1FE /* AudioPlayerOutput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioPlayerOutput.cpp; sourceTree = "<group>"; };
 		84A2F38E1C02F1E90037F1FE /* AudioPlayerOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerOutput.h; sourceTree = "<group>"; };
-		84A2F3901C030FFA0037F1FE /* AudioTouchPipe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioTouchPipe.cpp; sourceTree = "<group>"; };
-		84A2F3911C030FFA0037F1FE /* AudioTouchPipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioTouchPipe.h; sourceTree = "<group>"; };
 		84A2F3961C0401C30037F1FE /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		84A2F3981C0401F40037F1FE /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		84A2F39A1C0402D70037F1FE /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -140,12 +103,9 @@
 		845DE79D1BF485BC00112F9A /* JWAudioHelper */ = {
 			isa = PBXGroup;
 			children = (
-				8489DE0E1BFAFED200248C2D /* SoundTouch */,
 				84A2F3891C02D37F0037F1FE /* AudioToolkit.h */,
 				84A2F38B1C02E03C0037F1FE /* AudioRecorderInput.h */,
 				84A2F38A1C02E03C0037F1FE /* AudioRecorderInput.cpp */,
-				84A2F3911C030FFA0037F1FE /* AudioTouchPipe.h */,
-				84A2F3901C030FFA0037F1FE /* AudioTouchPipe.cpp */,
 				84A2F38E1C02F1E90037F1FE /* AudioPlayerOutput.h */,
 				84A2F38D1C02F1E90037F1FE /* AudioPlayerOutput.cpp */,
 				84A2F39D1C04183C0037F1FE /* AudioFileOutput.h */,
@@ -164,36 +124,6 @@
 				845DE7A41BF4A07500112F9A /* AVFoundation.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8489DE0E1BFAFED200248C2D /* SoundTouch */ = {
-			isa = PBXGroup;
-			children = (
-				8489DE0F1BFAFED200248C2D /* AAFilter.cpp */,
-				8489DE101BFAFED200248C2D /* AAFilter.h */,
-				8489DE111BFAFED200248C2D /* BPMDetect.cpp */,
-				8489DE121BFAFED200248C2D /* BPMDetect.h */,
-				8489DE131BFAFED200248C2D /* cpu_detect.h */,
-				8489DE141BFAFED200248C2D /* cpu_detect_x86.cpp */,
-				8489DE151BFAFED200248C2D /* FIFOSampleBuffer.cpp */,
-				8489DE161BFAFED200248C2D /* FIFOSampleBuffer.h */,
-				8489DE171BFAFED200248C2D /* FIFOSamplePipe.h */,
-				8489DE181BFAFED200248C2D /* FIRFilter.cpp */,
-				8489DE191BFAFED200248C2D /* FIRFilter.h */,
-				8489DE1A1BFAFED200248C2D /* mmx_optimized.cpp */,
-				8489DE1B1BFAFED200248C2D /* PeakFinder.cpp */,
-				8489DE1C1BFAFED200248C2D /* PeakFinder.h */,
-				8489DE1D1BFAFED200248C2D /* RateTransposer.cpp */,
-				8489DE1E1BFAFED200248C2D /* RateTransposer.h */,
-				8489DE1F1BFAFED200248C2D /* SoundTouch.cpp */,
-				8489DE201BFAFED200248C2D /* SoundTouch.h */,
-				8489DE211BFAFED200248C2D /* soundtouch_config.h */,
-				8489DE221BFAFED200248C2D /* sse_optimized.cpp */,
-				8489DE231BFAFED200248C2D /* STTypes.h */,
-				8489DE241BFAFED200248C2D /* TDStretch.cpp */,
-				8489DE251BFAFED200248C2D /* TDStretch.h */,
-			);
-			path = SoundTouch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,22 +197,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A2F3921C030FFA0037F1FE /* AudioTouchPipe.cpp in Sources */,
-				8489DE2C1BFAFED200248C2D /* PeakFinder.cpp in Sources */,
-				8489DE2F1BFAFED200248C2D /* sse_optimized.cpp in Sources */,
-				8489DE261BFAFED200248C2D /* AAFilter.cpp in Sources */,
-				8489DE2E1BFAFED200248C2D /* SoundTouch.cpp in Sources */,
-				8489DE291BFAFED200248C2D /* FIFOSampleBuffer.cpp in Sources */,
 				845DE78E1BF4858400112F9A /* ViewController.mm in Sources */,
 				845DE78B1BF4858400112F9A /* AppDelegate.m in Sources */,
 				84A2F38C1C02E03C0037F1FE /* AudioRecorderInput.cpp in Sources */,
-				8489DE281BFAFED200248C2D /* cpu_detect_x86.cpp in Sources */,
-				8489DE2B1BFAFED200248C2D /* mmx_optimized.cpp in Sources */,
 				84A2F38F1C02F1E90037F1FE /* AudioPlayerOutput.cpp in Sources */,
-				8489DE271BFAFED200248C2D /* BPMDetect.cpp in Sources */,
-				8489DE2A1BFAFED200248C2D /* FIRFilter.cpp in Sources */,
-				8489DE301BFAFED200248C2D /* TDStretch.cpp in Sources */,
-				8489DE2D1BFAFED200248C2D /* RateTransposer.cpp in Sources */,
 				845DE7881BF4858400112F9A /* main.m in Sources */,
 				84A2F39E1C04183C0037F1FE /* AudioFileOutput.cpp in Sources */,
 			);
